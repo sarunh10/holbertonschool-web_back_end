@@ -8,7 +8,7 @@ export default class Currency {
     }
 
     this._code = code;
-    this._name = name;
+    this._name = name;4-pricing.j
   }
 
   get code() {
