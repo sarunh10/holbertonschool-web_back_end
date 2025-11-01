@@ -1,41 +1,26 @@
-cat > 3-currency.js <<'EOF'
-export default class Currency {
-  constructor(code, name) {
-    if (typeof code !== 'string') {
-      throw new TypeError('Code must be a string');
-    }
-    if (typeof name !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-
-    this._code = code;
-    this._name = name;
+/* eslint-disable */
+import Currency from './3-currency';
+export default class Pricing {
+  constructor(amount, currency) {
+    this.amount = amount;
+    this.currency = currency;
   }
-
-  get code() {
-    return this._code;
+  get amount() {
+    return this._amount;
   }
-
-  set code(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Code must be a string');
-    }
-    this._code = value;
+  set amount(amount) {
+    this._amount = amount;
   }
-
-  get name() {
-    return this._name;
+  get currency() {
+    return this._currency;
   }
-
-  set name(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-    this._name = value;
+  set currency(currency) {
+    this._currency = currency;
   }
-
-  displayFullCurrency() {
-    return `${this._name} (${this._code})`;
+  displayFullPrice() {
+    return `${this._amount} ${this.currency._name} (${this.currency._code})`;
+  }
+  static convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
   }
 }
-EOF
