@@ -1,4 +1,4 @@
-// 3-currency.js
+cat > 3-currency.js <<'EOF'
 export default class Currency {
   constructor(code, name) {
     if (typeof code !== 'string') {
@@ -38,3 +38,4 @@ export default class Currency {
     return `${this._name} (${this._code})`;
   }
 }
+EOF
